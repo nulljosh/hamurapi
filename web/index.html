@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamurapi: be king for 10 years</title>
+<meta name="description" content="Be king for 10 years. Feed your people. Keep your crown. The 1968 game, rebuilt with a living city, a story and music. Play it here, free.">
+<meta property="og:title" content="Hamurapi">
+<meta property="og:description" content="Be king for 10 years. Feed your people. Keep your crown. Play it in your browser.">
+<meta property="og:image" content="https://hamurapi.jaybulb.com/og.png">
+<meta property="og:url" content="https://hamurapi.jaybulb.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.png">
+<style>
+:root{--ink:#23262d;--muted:#666b75;--accent:#b5502c;--paper:#f6f6f4;--line:rgba(0,0,0,.1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.hero{height:min(92svh,860px);min-height:560px;border-bottom:1px solid var(--line)}
+.hero iframe{display:block;width:100%;height:100%;border:0;background:var(--paper)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 0}
+.btn{display:inline-block;padding:12px 20px;border-radius:14px;font-weight:600;text-decoration:none;background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+section{padding:64px 0 0}
+h2{font-size:clamp(28px,4.5vw,40px);letter-spacing:-.5px;margin:0 0 14px;line-height:1.15}
+.lede{font-size:1.1rem;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}.card p{margin:0;color:var(--muted);font-size:.97rem}
+video{width:100%;border-radius:18px;border:1px solid var(--line);display:block;background:#fff}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:14px;margin-top:22px}
+.small{font-size:.9rem;color:var(--muted);margin:10px 0 0}
+.shots img{width:100%;border-radius:14px;border:1px solid var(--line);display:block}
+.credits p{max-width:680px}
+footer{margin-top:72px;border-top:1px solid var(--line);padding:26px 0 40px;font-size:.92rem;color:var(--muted)}
+footer .wrap{display:flex;gap:8px 20px;flex-wrap:wrap;justify-content:space-between}
+footer nav{display:flex;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<h1 class="sr">Hamurapi: be king for 10 years</h1>
+<div class="hero"><iframe id="game" title="Hamurapi, the game. Play it here." src="play/" allow="fullscreen"></iframe></div>
+<div class="cta wrap">
+  <a class="btn primary" href="play/">Play full screen</a>
+  <a class="btn" href="https://github.com/nulljosh/hamurapi/releases/latest">Get v1.0.0</a>
+  <a class="btn" href="https://github.com/nulljosh/hamurapi">Source on GitHub</a>
+</div>
+
+<main class="wrap">
+  <section>
+    <h2>That is the real game up there.</h2>
+    <p class="lede">Press start and play. You get 100 people, 1,000 acres and a barn full of grain. Each year you choose how much land to buy, how much to feed your people and how much to plant. Then you watch what happens.</p>
+    <video src="trailer.mp4" poster="shots/orders.png" controls muted loop playsinline preload="none" aria-label="The trailer: twenty-four seconds of the game"></video>
+    <p class="small">The trailer. Every second of it is the real Mac app.</p>
+    <div class="grid">
+      <div class="card"><h3>It all shows</h3><p>Good harvest and the crowd cheers. Rats run at the barn. Starve people and you see the ghosts, and the graves stay.</p></div>
+      <div class="card"><h3>A story with choices</h3><p>Traders, floods, a greedy king next door, a woman who reads the stars. Ten events, two choices each.</p></div>
+      <div class="card"><h3>Today's game</h3><p>Everyone who plays today gets the same luck. Same harvests, same rats. Compare grades.</p></div>
+      <div class="card"><h3>The 1968 game, untouched</h3><p>Classic mode is the original rules with nothing added. Three levels for the story: easy, normal, hard.</p></div>
+      <div class="card"><h3>Watch the robot</h3><p>A robot king plays a whole game while you watch. It gets an A+ in 878 of 1,000 games. Beat it.</p></div>
+      <div class="card"><h3>Music made of math</h3><p>The tune and every sound are worked out by a short program. No recordings. Turn it off any time.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>On your Mac and your iPhone.</h2>
+    <p class="lede">The app is native on both. It works with no internet, saves your game each year, and collects nothing. The App Store version is on its way: free for its first week, then one dollar, once. The game on this page stays free.</p>
+    <div class="shots">
+      <img src="shots/orders.png" alt="Choosing how much to feed and plant, with the city behind" loading="lazy">
+      <img src="shots/report.png" alt="A great harvest, with rats at the barn" loading="lazy">
+      <img src="shots/plague.png" alt="A sickness passing through the city" loading="lazy">
+      <img src="shots/over.png" alt="An A plus grade with fireworks" loading="lazy">
+    </div>
+  </section>
+
+  <section class="credits" id="credits">
+    <h2>Where it came from.</h2>
+    <p>In 1964 a teacher named Mabel Addis and a programmer named William McKay made The Sumer Game for school kids. In 1968 Doug Dyment wrote his own short version, Hamurabi, on a computer with almost no memory. In 1973 David Ahl put it in his book 101 BASIC Computer Games, and people typed it into home computers for years.</p>
+    <p>This one is a fresh build. The rules are the 1968 rules. The code, the art, the music and the story are new, and nothing is copied from the old versions. Thank you to the people who made the first ones.</p>
+    <p>The code is open under the MIT License. Take it, read it, change it.</p>
+  </section>
+
+  <section id="help">
+    <h2>Help.</h2>
+    <p class="lede">Stuck, found a bug, or have an idea? Write to <a href="mailto:trommatic@icloud.com">trommatic@icloud.com</a>. How to play is under the gear button in the game.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Copyright 2026 Joshua Trommel. MIT License. Based on Hamurabi by Doug Dyment, 1968.</span>
+    <nav>
+      <a href="play/">Play</a>
+      <a href="https://github.com/nulljosh/hamurapi">GitHub</a>
+      <a href="https://github.com/nulljosh/hamurapi/blob/main/LICENSE">License</a>
+      <a href="privacy">Privacy</a>
+      <a href="#help">Help</a>
+      <a href="https://jaybulb.com">More by Joshua</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
