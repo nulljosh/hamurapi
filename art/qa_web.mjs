@@ -117,7 +117,7 @@ try {
     if (info.wide) problems.push(`landing ${name}: page scrolls sideways`);
     if (!info.game || !info.canvas) problems.push(`landing ${name}: the game at the top did not start`);
     if (info.top > 1 || info.tall < 500) problems.push(`landing ${name}: the game is not the top of the page`);
-    for (const need of ["github.com/nulljosh/hamurapi", "/play/", "LICENSE"]) if (!info.links.some(l => l.includes(need))) problems.push(`landing: no link to ${need}`);
+    for (const need of ["github.com/nulljosh/labs/tree/main/hamurapi", "/play/", "LICENSE"]) if (!info.links.some(l => l.includes(need))) problems.push(`landing: no link to ${need}`);
     await p.shot(`landing-${name}`); await p.shot(`landing-${name}-full`, true);
     console.log(`  landing ${name}: game ${Math.round(info.tall)}px tall`);
   }
