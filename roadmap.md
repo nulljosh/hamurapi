@@ -12,7 +12,5 @@
 
 ## Ingested 2026-10-16
 - [ ] Needs iOS shipping. Currently only macOS (App Store page says "Only on Mac"). (screenshot: notes/attachments/2026-10-16/hamurapi-2.png)
-- [x] (checked fine at 390px 2026-10-30) Mobile web: display UI broken at hamurapi.jaybulb.com (controls panel over the scene on a phone). (screenshot: notes/attachments/2026-10-16/hamurapi-3.png)
 
 ## Ingested 2026-10-30
-- [x] Needs Hermes' landing page
