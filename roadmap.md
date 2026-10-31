@@ -15,4 +15,4 @@
 - [x] (checked fine at 390px 2026-10-30) Mobile web: display UI broken at hamurapi.jaybulb.com (controls panel over the scene on a phone). (screenshot: notes/attachments/2026-10-16/hamurapi-3.png)
 
 ## Ingested 2026-10-30
-- [ ] Needs Hermes' landing page
+- [x] Needs Hermes' landing page
