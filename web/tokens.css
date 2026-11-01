@@ -37,7 +37,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --accent: #e8875f;
-    --btn: #c25a33;
+    --btn: #bd5631; /* #c25a33 was 4.37:1 under white */
     --frame: #c25a33;
     --band: #7a3219;
     --band-sub: #f3d3c4;
