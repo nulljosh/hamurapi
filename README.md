@@ -1,7 +1,5 @@
 <img src="icon.svg" width="80" alt="">
 
-# Hamurapi
-
 ![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![tests](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml/badge.svg)](https://github.com/nulljosh/hamurapi/actions/workflows/test.yml)
 
 **Play it now: [hamurapi.jaybulb.com](https://hamurapi.jaybulb.com)**
