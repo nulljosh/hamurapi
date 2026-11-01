@@ -1,5 +1,5 @@
 // Keeps the game playable with no internet. Bump the name to ship a new version.
-const CACHE = "hamurapi-1.0.0-i";
+const CACHE = "hamurapi-1.0.0-j";
 const FILES = ["./", "rules.js", "scene.js", "sprites.png", "sprites.json", "story.json", "manifest.webmanifest", "../icon.png", "../icon-192.png",
   ...["music", "tap", "harvest", "poor", "rats", "starve", "arrive", "plague", "omen", "win", "lose"].map(n => `audio/${n}.mp3`)];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
