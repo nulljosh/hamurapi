@@ -15,6 +15,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="hero.css?v=1">
 <style>.stage iframe{display:block;position:relative;width:100%;height:min(80svh,760px);border:0;border-radius:20px;background:var(--paper,#f6f6f4)}</style>
 <script src="landing.js" defer></script>
 </head>
@@ -34,6 +35,7 @@
 
 <main id="top">
 <section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true" inert><iframe class="hero-game" src="play/?backdrop" title="" tabindex="-1" loading="eager"></iframe></div>
   <div class="wrap center hero-copy">
     <p class="label">The 1968 game, rebuilt</p>
     <h1>Be king for 10 years.</h1>
@@ -45,6 +47,9 @@
     <p class="fine">Free in your browser. Mac and iPhone too.</p>
   </div>
 
+</section>
+
+<section class="try">
   <div class="demo-wrap reveal" id="demo">
     <div class="stage">
       <iframe id="game" title="Hamurapi, the game. Play it here." src="play/" allow="fullscreen"></iframe>
@@ -105,5 +110,6 @@
   <canvas class="footer-scene" aria-hidden="true"></canvas>
 </footer>
 <script src="footer-scene.js" defer></script>
+<script src="hero.js?v=1" defer></script>
 </body>
 </html>

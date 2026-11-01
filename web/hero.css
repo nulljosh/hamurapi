@@ -1,0 +1,13 @@
+/* Hero: the real game behind the copy. play/?backdrop runs the robot ruler's reign silently, scene and year bar
+   only, blended into the page by a scrim and a fade; parallax in hero.js. The playable game sits under the hero. */
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: calc(100svh - 56px); display: grid; align-items: center; padding: var(--sp-8) 0; }
+.hero > .hero-copy { position: relative; z-index: 2; padding-block: 0; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse 52% 44% at 50% 50%, var(--bg) 46%, transparent 100%); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 28%; z-index: 1; pointer-events: none; background: linear-gradient(transparent, var(--bg)); }
+.hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .7; transform: translate3d(0, var(--py, 0), 0); will-change: transform; }
+.hero-game { display: block; width: 100%; height: 100%; border: 0; background: transparent; }
+@media (max-width: 560px) { .hero-bg { opacity: .5; } .hero::before { background: radial-gradient(ellipse 120% 46% at 50% 50%, var(--bg) 62%, transparent 100%); } }
+@media (max-width: 600px) { .nav { grid-template-columns: auto 1fr; } .nav-brand { grid-column: 1; } .nav-end { grid-column: 2; justify-self: end; } }
+.try { padding: 0 0 var(--sp-8); }
+.try .demo-wrap { margin-top: 0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero-bg { opacity: .42; } }
