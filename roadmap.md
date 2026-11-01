@@ -11,6 +11,5 @@
 - architecture.svg in the house style
 
 ## Ingested 2026-10-16
-- [x] (11-01: already shipped, iOS 1.0.0 is READY_FOR_SALE and the public listing lists iPhone, iPad and Mac) Needs iOS shipping. Currently only macOS (App Store page says "Only on Mac"). (screenshot: notes/attachments/2026-10-16/hamurapi-2.png)
 
 ## Ingested 2026-10-30
