@@ -13,3 +13,6 @@
 ## Ingested 2026-10-16
 
 ## Ingested 2026-10-30
+
+## Stashed 2026-11-07
+- [ ] Next App Store version: the Mac 1.0.0 support and marketing URLs still point at hamurapi.heyitsmejosh.com (heyitsmejosh.com lapsed, the link is dead; App Review can reject on it). Set both to https://hamurapi.jaybulb.com in the new version's localizations. Live versions cannot be edited.
