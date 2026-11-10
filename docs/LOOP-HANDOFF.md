@@ -12,12 +12,14 @@ SUBMITTED on 2026-10-05 at 00:19 PDT. The App Store record is 6819131590. iPhone
 
 The Joshua Tree version is merged (Joshua Tree 2.7.0) and playable in the OS.
 
+The sprites are redrawn in `art/build.py` (f4bda7d): real legs and faces on the camel, ox, cat, sheep and rat, two-stalk wheat so fields read as fields, and a sun with rays. The trailer is a 29-second `web/trailer.mp4`, cut by `art/trailer.mjs` from frames of the web game in headless Chrome (ae5c408), and it replaces `art/trailer.sh`. Its music has not been listened to by anyone yet. The Mac and iPhone apps only get the new sprites with the next store build; nothing has been submitted. Higgsfield was not used (4.25 credits; the cheapest clip costs 5). The web deploy to hamurapi.jaybulb.com was reported done at checkpoint time, not yet verified live.
+
 ## Next, in order
 
 1. Watch the review: `asc status --app 6819131590`. If Apple rejects it, read the reason with `asc web review show --app 6819131590` before changing anything. Do not resubmit into a spam-wave rejection; appeal in Resolution Center.
 2. The day Apple approves it: the game is free for its first week. Schedule the $0.99 price for seven days later (command in `docs/MONEY.md`). Anyone who got it free keeps it free.
 3. After approval, add the App Store link to the README and the landing page.
-4. Landing page: the dark-mode night hero and the single pixel icon are in `main`. The web deploy was still running at checkpoint time; check it live before calling it shipped. Open: the top-left stats bar is hard to read in dark mode (in `roadmap.md`). The landing QA check was updated to the current page in b4c783a.
+4. Landing and trailer: the night hero, the redrawn sprites and the new trailer are on `main`. Check the live site once, and listen to the trailer's music before using it anywhere. Next store version carries the new sprites to the apps; it is not submitted.
 5. Joshua Tree: Hamurapi has no sound or difficulty setting in the OS yet.
 
 ## Restart prompt
