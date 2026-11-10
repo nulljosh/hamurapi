@@ -11,7 +11,8 @@ Hamurapi is Hamurabi (1968) as a game you can watch. The store name Hamurabi was
 - `app/` is xcodegen (`xcodegen generate`, no checked-in xcodeproj). Staged screenshots: launch with `HAMURABI_SHOT=title|card|orders|report|plague|over`
 - Test before pushing: `python3 hamurapi.py --demo && node web/play/rules.js && (cd app && xcodebuild test -scheme Hamurapi -destination platform=macOS)`. For anything on the web, also `node art/qa_web.mjs` with `python3 -m http.server 8765 --directory web` running
 - A push deploys nothing. `npx wrangler deploy` ships `web/`. When web files change, bump `CACHE` in `web/play/sw.js`
-- Docs: README, `docs/ARCHITECTURE.md` (a row per file), `WHITEPAPER.md` (the rules and the math). Update them in the same commit as the code
+- Docs: README, `docs/ARCHITECTURE.md` (a row per file), `docs/WHITEPAPER.md` (the rules and the math). Update them in the same commit as the code
+- Root stays small: README, CLAUDE (AGENTS links to it), LICENSE, roadmap, the two Python files, `icon.svg`, `wrangler.toml`. Every other doc goes in `docs/`, `SECURITY.md` in `.github/`. `/tidy` puts a repo back in this shape
 - No sand or beige in the art or the UI. Off-white, ink and the terracotta accent `#b5502c`
 
 ## The loop

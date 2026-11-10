@@ -15,7 +15,7 @@ The Joshua Tree version is merged (Joshua Tree 2.7.0) and playable in the OS.
 ## Next, in order
 
 1. Watch the review: `asc status --app 6819131590`. If Apple rejects it, read the reason with `asc web review show --app 6819131590` before changing anything. Do not resubmit into a spam-wave rejection; appeal in Resolution Center.
-2. The day Apple approves it: the game is free for its first week. Schedule the $0.99 price for seven days later (command in `MONEY.md`). Anyone who got it free keeps it free.
+2. The day Apple approves it: the game is free for its first week. Schedule the $0.99 price for seven days later (command in `docs/MONEY.md`). Anyone who got it free keeps it free.
 3. After approval, add the App Store link to the README and the landing page.
 4. Joshua Tree: Hamurapi has no sound or difficulty setting in the OS yet.
 

@@ -12,8 +12,8 @@
 @import url("tokens.css");
 /* written by make_brand_page.py; white paper in light mode, the shared tokens in dark */
 @media (prefers-color-scheme: light) { :root { --color-bg: #fff; --color-bg2: #f5f5f7; --color-hairline: #e5e5ea; } }
-:root { --a: #3d7a0f; --a-light: #7cb342; --a-deep: #3d7a0f; --a-solid: #3d7a0f; --a-link: #3d7a0f; --ink: var(--color-text, #1d1d1f); --paper: var(--color-bg, #fff); --surface: var(--color-bg2, #f5f5f7); --line: var(--color-hairline, #e5e5ea); --sub: var(--color-secondary, rgba(0,0,0,.64)); }
-@media (prefers-color-scheme: dark) { :root { --a-link: #7cb342; } }
+:root { --a: #b5502c; --a-light: #dd7d52; --a-deep: #b5502c; --a-solid: #b5502c; --a-link: #b5502c; --ink: var(--color-text, #1d1d1f); --paper: var(--color-bg, #fff); --surface: var(--color-bg2, #f5f5f7); --line: var(--color-hairline, #e5e5ea); --sub: var(--color-secondary, rgba(0,0,0,.64)); }
+@media (prefers-color-scheme: dark) { :root { --a-link: #e8875f; } }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; line-height: 24px; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
 a { color: var(--a-link); }
@@ -78,7 +78,7 @@ footer { padding: 48px 0; text-align: center; font-size: 13px; color: var(--sub)
   <section aria-labelledby="mark-h">
     <p class="label">The mark</p>
     <h2 id="mark-h">A ziggurat</h2>
-    <p class="intro">A stepped ziggurat, the temple at the heart of a Sumerian city. One bold white glyph on a gradient tile, no text, no outline.</p>
+    <p class="intro">A stepped ziggurat, the temple at the heart of a Sumerian city. The icon is drawn in the game's own pixels: the ziggurat at night, the sun behind it, wheat in front. The flat glyph is for one colour jobs.</p>
     <div class="marks">
       <figure><img src="icon-1024.png" width="160" height="160" alt="The Hamurapi icon at 160 pixels"><figcaption>160</figcaption></figure>
       <figure><img src="icon-1024.png" width="64" height="64" alt="The Hamurapi icon at 64 pixels"><figcaption>64</figcaption></figure>
@@ -96,10 +96,10 @@ footer { padding: 48px 0; text-align: center; font-size: 13px; color: var(--sub)
     <h2 id="colour-h">One colour, and paper</h2>
     <p class="intro">The accent is the only colour Hamurapi owns. It marks actions, links and the icon. The rest is paper and ink, from the shared system.</p>
     <div class="grid">
-      <div class="card"><div class="sw" style="background:#3d7a0f"></div><b>Accent</b><small><code>#3d7a0f</code>. Actions, links, focus.</small></div>
-      <div class="card"><div class="sw" style="background:#7cb342"></div><b>Accent light</b><small><code>#7cb342</code>. The top of the icon.</small></div>
-      <div class="card"><div class="sw" style="background:#3d7a0f"></div><b>Accent deep</b><small><code>#3d7a0f</code>. The foot of the icon.</small></div>
-      <div class="card"><div class="sw" style="background:linear-gradient(#7cb342,#3d7a0f)"></div><b>Icon gradient</b><small><code>#7cb342</code> to <code>#3d7a0f</code>, top to bottom.</small></div>
+      <div class="card"><div class="sw" style="background:#b5502c"></div><b>Accent</b><small><code>#b5502c</code>. Actions, links, focus.</small></div>
+      <div class="card"><div class="sw" style="background:#dd7d52"></div><b>Accent light</b><small><code>#dd7d52</code>. The top of the icon.</small></div>
+      <div class="card"><div class="sw" style="background:#b5502c"></div><b>Accent deep</b><small><code>#b5502c</code>. The foot of the icon.</small></div>
+      <div class="card"><div class="sw" style="background:linear-gradient(#dd7d52,#b5502c)"></div><b>Icon gradient</b><small><code>#dd7d52</code> to <code>#b5502c</code>, top to bottom.</small></div>
       <div class="card"><div class="sw" style="background:#fff"></div><b>Paper</b><small><code>#ffffff</code> light, <code>#1c1a17</code> dark.</small></div>
       <div class="card"><div class="sw" style="background:#f5f5f7"></div><b>Surface</b><small><code>#f5f5f7</code> light, <code>#26231f</code> dark.</small></div>
       <div class="card"><div class="sw" style="background:#e5e5ea"></div><b>Hairline</b><small><code>#e5e5ea</code> light, <code>#3a352e</code> dark.</small></div>

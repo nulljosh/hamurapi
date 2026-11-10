@@ -64,7 +64,7 @@ A robot king playing 1,000 seeded games earns A+ in 878 of them (87.8%), B in 5.
 
 ## How it's built
 
-A map of every file: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). The rules, why the game is hard and how the robot plays: [WHITEPAPER.md](WHITEPAPER.md). What's next: [roadmap.md](roadmap.md).
+A map of every file: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). The rules, why the game is hard and how the robot plays: [docs/WHITEPAPER.md](docs/WHITEPAPER.md). What's next: [roadmap.md](roadmap.md).
 
 The art is code too. `python3 art/build.py` draws every sprite and the icon. `art/make_audio.py` writes the music and the sounds. `art/story.json` holds every word of the story.
 
@@ -74,4 +74,4 @@ The idea is older than this code. Mabel Addis and William McKay made The Sumer G
 
 The rules here are the 1968 rules. The code, the art, the music and the story are new. Nothing is copied from the old versions.
 
-MIT License, copyright 2026 Joshua Trommel. See [LICENSE](LICENSE). Privacy: [PRIVACY.md](PRIVACY.md).
+MIT License, copyright 2026 Joshua Trommel. See [LICENSE](LICENSE). Privacy: [docs/PRIVACY.md](docs/PRIVACY.md).

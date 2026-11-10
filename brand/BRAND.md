@@ -3,18 +3,17 @@
 a ziggurat
 
 ## The mark
-One bold flat white glyph on an accent gradient tile. No text, no outline, no emblem.
+The icon is pixel art, drawn by `art/build.py` like every sprite: the ziggurat at night, the sun behind it, wheat in front.
 
-- `../Hamurapi.icon` is the source of truth (Icon Composer). Light and dark fills are set in it.
-- `../icon.svg` is the flat copy for READMEs (shown at 80 px). `icon-1024.png` is the App Store icon, no alpha.
-- `mark.svg` is the glyph alone in `currentColor` for your own background.
-- Clear space equal to the width of the glyph's thickest stroke. Smallest size 16 px.
+- `../app/Hamurapi.icon` is the Icon Composer bundle the app ships. `../icon.svg` is the flat copy for READMEs (80 px). `icon-1024.png` is the App Store icon, no alpha. All three come out of `python3 art/build.py`; never edit them by hand.
+- `mark.svg` is the ziggurat as a flat glyph in `currentColor`, for one colour jobs.
+- Smallest size 16 px.
 
 ## Colour
 | Role | Value |
 |---|---|
-| Accent | `#3d7a0f` |
-| Gradient top | `#7cb342` |
+| Accent | `#b5502c` |
+| Gradient top | `#dd7d52` |
 | Text | `#1d1d1f` light, `#f5f5f7` dark |
 | Background | `#ffffff` light, `#000000` dark |
 | Surface | `#f5f5f7` light, `#1c1c1e` dark |
