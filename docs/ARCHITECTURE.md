@@ -75,7 +75,7 @@ Nothing here is drawn by hand or recorded. It is all code.
 | `art/build.py` | Draws every sprite as a grid of letters, shades and outlines them, writes them for the app and the web, draws the icon, copies the story. |
 | `art/make_audio.py` | Writes the music loop and ten sound effects from sine waves and noise. |
 | `art/shots_mac.sh`, `art/shots_ios.sh` | Take screenshots of staged moments on the Mac and in the simulator. |
-| `art/trailer.sh` | Records the Mac app and cuts the trailer. |
+| `art/trailer.mjs` | Cuts the trailer from the web game in headless Chrome. No screen recording. |
 | `art/qa_web.mjs` | Plays whole games in headless Chrome by clicking the real buttons, and checks the landing page. |
 
 ## Checks

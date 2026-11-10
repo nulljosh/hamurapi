@@ -1,6 +1,5 @@
-// NOT WORKING YET: the stepped clock stalls on the staged shots (report onward). art/trailer.sh still cuts the real trailer.
-// Cuts the trailer from the web game in headless Chrome. No screen recording: the page's clock is stepped one
-// frame at a time, so every run gives the same film and nothing from the desktop or a saved game can leak in.
+// Cuts the trailer from the web game in headless Chrome. No screen recording: frames are grabbed from the
+// page as it plays, so nothing from the desktop or a saved game can leak in.
 // Usage: node art/trailer.mjs [base url]   (needs Chrome, ffmpeg and a server for web/: python3 -m http.server 8765 --directory web)
 import { spawn } from "node:child_process";
 import { mkdtempSync } from "node:fs";
@@ -12,7 +11,7 @@ const BASE = process.argv[2] || "http://localhost:8765", ROOT = join(dirname(fil
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", PORT = 9334, FPS = 30, W = 1280, H = 800, SCALE = 1.5;
 //               page                seconds  caption
 const SCENES = [["play/?shot=title",  3.5, ""],
-                ["play/?demo",        6,   "Feed your people."],
+                ["play/?shot=orders", 5,   "Feed your people."],
                 ["play/?shot=report", 4,   "Fill the barn."],
                 ["play/?shot=plague", 4.5, "Things go wrong."],
                 ["play/?shot=card",   4,   "Make hard choices."],
@@ -48,22 +47,18 @@ try {
     else { events.get(msg.method)?.(); events.delete(msg.method); }
   });
   const send = (method, params = {}) => new Promise(r => { waiting.set(++id, r); ws.send(JSON.stringify({ id, method, params })); });
-  const tick = async ms => {  // let the page live for this many milliseconds of its own clock, then freeze it
-    const done = new Promise(r => events.set("Emulation.virtualTimeBudgetExpired", r));
-    await send("Emulation.setVirtualTimePolicy", { policy: "advance", budget: ms });
-    await Promise.race([done, sleep(150)]);  // a lost event must not hang the cut
-  };
-  const frames = async seconds => {
-    for (let f = 0; f < Math.round(seconds * FPS); f++) {
-      await tick(1000 / FPS);
-      const shot = await send("Page.captureScreenshot", { format: "jpeg", quality: 93 });
-      if (!film.stdin.write(Buffer.from(shot.result.data, "base64"))) await new Promise(r => film.stdin.once("drain", r));
+  const frames = async seconds => {  // grab as fast as Chrome gives them, and repeat a frame to hold 30 a second
+    const start = Date.now(), want = Math.round(seconds * FPS);
+    for (let done = 0; done < want;) {
+      const shot = await send("Page.captureScreenshot", { format: "jpeg", quality: 90, optimizeForSpeed: true }), jpg = Buffer.from(shot.result.data, "base64");
+      for (const due = Math.min(want, Math.max(done + 1, Math.round((Date.now() - start) / 1000 * FPS))); done < due; done++)
+        if (!film.stdin.write(jpg)) await new Promise(r => film.stdin.once("drain", r));
     }
   };
   await send("Runtime.enable"); await send("Page.enable");
   await send("Emulation.setDeviceMetricsOverride", { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
   for (const [path, seconds, caption] of SCENES) {
-    await send("Page.navigate", { url: `${BASE}/${path}` }); await sleep(700); await tick(1800);
+    await send("Page.navigate", { url: `${BASE}/${path}` }); await sleep(1800);
     if (caption) await send("Runtime.evaluate", { expression: CAPTION(caption) });
     await frames(seconds); console.log(`  ${path}: ${seconds} s`);
   }
