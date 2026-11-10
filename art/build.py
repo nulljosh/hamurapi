@@ -59,7 +59,7 @@ def from_rows(rows, sub=None):
 
 OUT = {}
 SOFT = {"cloud_a", "cloud_b", "ghost", "plague", "grain", "spark", "bird_0", "bird_1", "skull", "rat_0", "rat_1",
-        "flame_0", "flame_1", "fish", "scuffle_0", "scuffle_1"} | {f"wheat_{a}_{b}" for a in ("0", "1", "2", "dry") for b in (0, 1)}  # no outline
+        "flame_0", "flame_1", "fish", "sun_0", "sun_1"} | {f"wheat_{a}_{b}" for a in ("0", "1", "2", "dry") for b in (0, 1)}  # no outline
 
 # villagers: a 4-frame walk and a 2-frame cheer, in a dozen outfits, plus the sick green set
 BODY = {"swing_a": [".cccccc.", "tcccccc.", "t.eeeet.", "..cccc.t", "..cccc.."],
@@ -109,13 +109,17 @@ OUT["skull"] = from_rows([".kkkkk.", "kwwwwwk", "kwkwkwk", "kwwwwwk", ".kwwwk.",
 OUT["grain"] = from_rows([".y.", "yYy", ".y."])
 OUT["flag_0"] = from_rows(["krrrr.", "krrrrR", "krrrR.", "k.....", "k.....", "k.....", "k.....", "k.....", "k.....", "kk...."])
 OUT["flag_1"] = from_rows(["krrr..", "krrrrr", "k.rrrR", "k.....", "k.....", "k.....", "k.....", "k.....", "k.....", "kk...."])
-OUT["scuffle_0"] = from_rows(["...y.GGGG..y...", ".tGGGGGGGGG....", "tGGgGGGGGGGGk..", ".GGGGGGgGGGGkk.", "GGGGGGGGGGGGG..", ".GGgGGGGGGGgGt.", "..GGGGGGGGGGtt.", ".kkGGGGGGGG....", "..k...GG...y..."])
-OUT["scuffle_1"] = from_rows(["..GGGG....y....", ".GGGGGGGGGtt...", "kGGGGGgGGGGt...", "kkGGGGGGGGGG.y.", ".GGGgGGGGGGGG..", "tGGGGGGGGGGGGk.", "ttGGGGGgGGGGkk.", "..y.GGGGGGG....", ".....GGG......."])
-OUT["sheep_0"] = from_rows(["..wwwwww...", ".wwwwwwwwkk", "wwwwwwwwwkk", "wwwwwwwww..", ".wwwwwww...", ".k.k..k.k.."])
-OUT["sheep_1"] = from_rows(["..wwwwww...", ".wwwwwwww..", "wwwwwwwwwkk", "wwwwwwwwwkk", ".wwwwwww.k.", "..kk..kk..."])
-OUT["fish"] = from_rows(["s.bbb.", "sbbbkb", "s.bbb."])
-OUT["cat_0"] = from_rows(["k......k.k", "k.....kkkk", ".kkkkkkyky", ".kkkkkkkk.", ".k.k..k.k."])
-OUT["cat_1"] = from_rows([".k.....k.k", "k.....kkkk", ".kkkkkkyky", ".kkkkkkkk.", "..kk..kk.."])
+# a fight: a dust cloud with fists, feet and stars flying out of it
+OUT["scuffle_0"] = from_rows(["..y..ggg....y..", ".2ggggggggg....", "2ggwgggggggk...", ".ggggggwggggkk.", "gggggggggggGG..", ".GgwggggggggG2.", "..GGggggggGG22.", ".kkGGGGGGGG....", "..k...GG...y..."])
+OUT["scuffle_1"] = from_rows(["..ggg.....y....", ".gggggggggg22..", "kggggwggggg2...", "kkgggggggggg.y.", ".ggwgggggggGG..", "2GgggggggggGGk.", "22GGgggwggGGkk.", "..y.GGGGGGG....", ".....GGG......."])
+def sheep(frame):  # frame 1 has its head down in the grass
+    return from_rows(["...ww.ww....", ".wwwwwwwww..", "wwwGwwwwwSSS", "wwwwwwGwwSwS", "wGwwwwwwwwSS", ".wwwwGwwww..", "..SS...SS...", "..SS...SS..."] if frame == 0 else
+                     ["...ww.ww....", ".wwwwwwwww..", "wwwGwwwwww..", "wwwwwwGwwww.", "wGwwwwwwwSSS", ".wwwwGwwwSwS", "...SS.SS..SS", "...SS.SS...."])
+OUT["sheep_0"], OUT["sheep_1"] = sheep(0), sheep(1)
+OUT["fish"] = from_rows(["s..bbbb.", "ssbbbbkb", "ssbBBBb.", "s..bb..."])
+# a ginger cat: ears, a tail that flicks, white socks
+OUT["cat_0"] = from_rows(["........o..o", "........oooo", "o.......ooko", "o..ooooooooo", ".oooroorooo.", "..oooooooo..", "..o.o..o.o..", "..w.w..w.w.."])
+OUT["cat_1"] = from_rows(["........o..o", ".o......oooo", ".o......ooko", ".o.ooooooooo", ".oooroorooo.", "..oooooooo..", "...oo..oo...", "...ww..ww..."])
 
 def house(roof, shade, w=18, h=14):
     """A mudbrick house: flat roof with a coloured awning, a door to one side, one window, roof beams poking out."""
@@ -154,16 +158,20 @@ def king(frame):
 OUT["king_0"], OUT["king_1"], OUT["king_2"] = king(0), king(1), king(2)
 
 def wheat(stage, sway, dry=False):
-    s = Sprite(7, 12); leaf, dk = ("Y", "Y") if dry else ("n", "N")
-    dx = 1 if sway else 0
-    if stage == 0:
-        s.rect(3, 9, 1, 3, dk); s.put(2, 8, leaf); s.put(4 + dx, 8, leaf)
-    elif stage == 1:
-        s.rect(3, 5, 1, 7, dk); s.put(2, 7, leaf); s.put(4, 6, leaf); s.put(2 + dx, 4, leaf); s.put(4 + dx, 4, leaf); s.put(3 + dx, 3, leaf)
-    else:
-        s.rect(3, 4, 1, 8, "N"); s.put(2, 9, "n"); s.put(4, 8, "n")
-        for (x, y) in ((3, 0), (2, 1), (4, 1), (3, 2), (2, 3), (4, 3), (3, 1), (3, 3)): s.put(x + dx, y, "y")
-        s.put(2 + dx, 2, "Y"); s.put(4 + dx, 2, "Y")
+    """Two stalks to a tile, one tall and one short, so a field reads as a field and not as a row of pins."""
+    s = Sprite(7, 12); dx = 1 if sway else 0
+    leaf, dk = ("t", "Y") if dry else ("n", "N")
+    for cx, top in ((1, 0), (4, 3)):
+        if stage == 0:
+            s.rect(cx, 10, 1, 2, dk); s.put(cx + dx, 9, leaf)
+            if top: s.put(cx + 1, 10, leaf)
+        elif stage == 1:
+            s.rect(cx, top + 4, 1, 8 - top, dk); s.put(cx - 1, top + 6, leaf); s.put(cx + 1, top + 5, leaf)
+            if dry: s.put(cx + 1, top + 4, dk)           # the tip hangs over
+            else: s.put(cx + dx, top + 3, leaf)
+        else:
+            s.rect(cx, top + 5, 1, 7 - top, "N"); s.put(cx + 1, top + 7, "n"); s.put(cx - 1, top + 8, "n")
+            s.rows([".y.", "yYy", "yyy", "yYy", ".y."], ox=cx - 1 + dx, oy=top)  # the ear
     return s
 for st in range(3):
     for sw in range(2): OUT[f"wheat_{st}_{sw}"] = wheat(st, sw)
@@ -171,11 +179,11 @@ for sw in range(2): OUT[f"wheat_dry_{sw}"] = wheat(1, sw, True)
 
 def palm(sway):
     s = Sprite(16, 24)
-    for i, y in enumerate(range(10, 24)): s.rect(7 + (1 if i < 5 else 0), y, 2, 1, "m")
-    d = sway
-    for (x, y) in ((3, 8), (4, 7), (5, 7), (6, 8), (9, 8), (10, 7), (11, 7), (12, 8), (2, 10), (13, 10), (7, 6), (8, 6), (4, 9), (11, 9)):
-        s.put(x + (d if y < 9 else 0), y, "n")
-    for (x, y) in ((2, 9), (13, 9), (6, 9), (9, 9)): s.put(x, y, "N")
+    for y in range(7, 24): s.rect(7 if y < 17 else 6, y, 2, 1, "m")
+    for y in range(11, 24, 3): s.put(8 if y < 17 else 7, y, "H")       # rings up the trunk
+    s.rect(5, 23, 4, 1, "m")
+    s.rows(["....nnn..nnn....", "..nnnnnnnnnnnn..", ".nnNnnnnnnnnNnn.", "nnN.nnnnnnnn.Nnn", "nN..nNnnnnNn..Nn", "n..nnN.nn.Nnn..n"], ox=sway, oy=1)
+    s.rows(["...nN..mm..Nn...", "..nN..HmmH..Nn..", "..n....mm....n.."], oy=7)  # the low fronds and two coconuts
     return s
 OUT["palm_0"], OUT["palm_1"] = palm(0), palm(1)
 
@@ -186,8 +194,8 @@ gr.rect(10, 13, 5, 9, "S"); gr.rect(10, 13, 5, 1, "k"); gr.rect(11, 0, 2, 2, "k"
 OUT["granary"] = gr
 OUT["sack"] = from_rows([".kkk..", "yyyyyy", "yyyYyy", "yyyyYy", "yYyyyy", ".YYYY."])
 
-OUT["rat_0"] = from_rows(["..........", ".....SS...", "sss.SSSSk.", "..sSSSSSS.", "...k.k.k.."])
-OUT["rat_1"] = from_rows(["..........", ".....SS...", "sss.SSSSk.", "..sSSSSSS.", "....k.k.k."])
+OUT["rat_0"] = from_rows(["......SS..", "....SSSSS.", "oo.SSSSSwS", "..oSSSSSSo", "....k..k.."])
+OUT["rat_1"] = from_rows(["......SS..", "....SSSSS.", "..oSSSSSwS", "oo.SSSSSSo", ".....k..k."])
 
 c = Sprite(28, 11)
 c.rect(3, 5, 22, 6, "g"); c.rect(8, 2, 9, 4, "g"); c.rect(15, 3, 8, 3, "g"); c.rect(4, 4, 6, 1, "g")
@@ -197,14 +205,16 @@ c2 = Sprite(20, 8); c2.rect(2, 4, 16, 4, "g"); c2.rect(6, 1, 7, 4, "g"); c2.rect
 OUT["cloud_b"] = c2
 
 def sun(frame):
-    s = Sprite(20, 20); cx = cy = 10
+    """A disc with a bright side and a shaded rim, and rays that pulse: long up and across, then long on the slant."""
+    s = Sprite(20, 20)
     for y in range(20):
         for x in range(20):
-            d = (x - cx + .5) ** 2 + (y - cy + .5) ** 2
-            if d <= 30: s.put(x, y, "o" if d <= 14 and x < cx + 1 and y < cy + 1 else "r")
-    rays = ((10, 0), (10, 1), (9, 0), (9, 1), (10, 18), (10, 19), (9, 18), (9, 19), (0, 9), (1, 9), (0, 10), (1, 10), (18, 9), (19, 9), (18, 10), (19, 10)) if frame == 0 else \
-           ((2, 2), (3, 3), (16, 2), (15, 3), (2, 16), (3, 15), (16, 16), (15, 15), (1, 2), (2, 1), (17, 2), (16, 1), (1, 17), (2, 18), (17, 17), (16, 18))
-    for (x, y) in rays: s.put(x, y, "o")
+            dx, dy = x - 9.5, y - 9.5; d = dx * dx + dy * dy
+            if d <= 38: s.put(x, y, "y" if (dx + 2) ** 2 + (dy + 2) ** 2 <= 9 else "r" if d > 24 and dx + dy > 2 else "o")
+    n = 3 if frame == 0 else 2
+    s.rect(9, 3 - n, 2, n, "o"); s.rect(9, 17, 2, n, "o"); s.rect(3 - n, 9, n, 2, "o"); s.rect(17, 9, n, 2, "o")
+    for k in range(1 if frame == 0 else 3):
+        for x, y in ((4 - k, 4 - k), (15 + k, 4 - k), (4 - k, 15 + k), (15 + k, 15 + k)): s.put(x, y, "o")
     return s
 OUT["sun_0"], OUT["sun_1"] = sun(0), sun(1)
 
@@ -212,26 +222,33 @@ OUT["bird_0"] = from_rows(["k.....k", ".k...k.", "..kkk.."])
 OUT["bird_1"] = from_rows(["..kkk..", ".k...k.", "k.....k"])
 
 def camel(frame):
+    """One hump, a long neck, a red saddle blanket. The far legs are darker and step opposite the near ones."""
     s = Sprite(24, 18)
-    s.rect(4, 6, 13, 6, "m"); s.rect(7, 3, 3, 3, "m"); s.rect(12, 4, 3, 2, "m"); s.rect(16, 2, 2, 6, "m"); s.rect(17, 1, 5, 3, "m"); s.put(20, 2, "k")
-    legs = ((4, 12), (8, 12), (12, 12), (16, 12)) if frame == 0 else ((5, 12), (9, 12), (11, 12), (15, 12))
-    for (x, y) in legs: s.rect(x, y, 1, 6, "S")
-    s.rect(4, 11, 13, 1, "S"); s.put(3, 7, "m"); s.put(2, 8, "m")
+    for x in ((8, 12) if frame == 0 else (4, 13)): s.rect(x, 12, 2, 5, "m"); s.rect(x, 17, 2, 1, "S")
+    s.rows(["...................t.t..", "..................ttttt.", "..................ttkttt", "..................tttttt",
+            "........tttt......ttt...", ".......tttttt....ttt....", "......tttttttt..tttt....", "....tttttttttttttttt....",
+            "...ttttttttttttttttt....", "..t.tttttttttttttt......", "..t.tttttttttttttt......", "..m.tttttttttttttt......"])
+    s.rect(8, 5, 4, 4, "r"); s.rect(8, 9, 4, 1, "y")
+    for x in ((5, 15) if frame == 0 else (7, 16)): s.rect(x, 12, 2, 5, "t"); s.rect(x, 17, 2, 1, "S")
     return s
 OUT["camel_0"], OUT["camel_1"] = camel(0), camel(1)
 
-p = Sprite(32, 14)
-for (x, y, w, h) in ((2, 5, 28, 8), (6, 2, 12, 5), (14, 3, 12, 5), (0, 8, 10, 4)): p.rect(x, y, w, h, "z")
-p.rect(2, 11, 28, 2, "Z"); p.rect(8, 6, 3, 3, "Z"); p.rect(20, 7, 3, 3, "Z")
+p = Sprite(32, 14)  # the sickness: a low cloud of round puffs, dark underneath, with spores in it
+for y in range(14):
+    for x in range(32):
+        if any((x - cx) ** 2 + (y - cy) ** 2 <= r * r + 1 for cx, cy, r in ((3, 10, 2), (8, 8, 4), (15, 6, 5), (22, 7, 5), (28, 9, 3))) and y < 13:
+            p.put(x, y, "Z" if y >= 11 else "z")
+for x, y in ((7, 7), (14, 4), (17, 8), (23, 6), (27, 9), (11, 10)): p.put(x, y, "Z")
+for x in (6, 13, 20, 26): p.put(x, 13, "Z")
 OUT["plague"] = p
 OUT["spark"] = from_rows([".y.", "yyy", ".y."])
 
 def ox(frame):
-    s = Sprite(18, 11)
-    s.rect(3, 3, 11, 5, "m"); s.rect(13, 2, 4, 4, "m"); s.put(16, 1, "w"); s.put(13, 1, "w"); s.put(16, 3, "k")
-    s.rect(3, 3, 11, 1, "t"); s.put(2, 4, "m"); s.put(1, 5, "m")
-    legs = ((3, 8), (6, 8), (10, 8), (13, 8)) if frame == 0 else ((4, 8), (7, 8), (9, 8), (12, 8))
-    for (x, y) in legs: s.rect(x, y, 1, 3, "S")
+    """Heavy shoulders, a low head, horns like a lyre."""
+    s = Sprite(18, 12)
+    for x in ((6, 9) if frame == 0 else (2, 11)): s.rect(x, 8, 2, 3, "H"); s.rect(x, 11, 2, 1, "k")
+    s.rows([".............w...w", "........mmmm..w.w.", "..mmmmmmmmmmm.mmm.", ".mmmmmmmmmmmmmmmmm", "H.mmmmmmmmmmmmmkmm", "H.mmmmmmmmmmmmmmm1", "H.mmmmmmmmmmm.mm11", "..mmmmmmmmmmm....."])
+    for x in ((3, 11) if frame == 0 else (5, 9)): s.rect(x, 8, 2, 3, "m"); s.rect(x, 11, 2, 1, "k")
     return s
 OUT["ox_0"], OUT["ox_1"] = ox(0), ox(1)
 
@@ -326,12 +343,12 @@ if __name__ == "__main__":
     atlas.save(os.path.join(ROOT, "web/play/sprites.png"))
     for d in ("app/App", "web/play"): shutil.copy(os.path.join(ROOT, "art/story.json"), os.path.join(ROOT, d, "story.json"))
     with open(os.path.join(ROOT, "web/play/sprites.json"), "w") as f: json.dump(where, f)
-    sheet = Image.new("RGBA", (760, 330), (246, 246, 244, 255)); x = y = 4; rowh = 0  # contact sheet for eyeballing
+    sheet = Image.new("RGBA", (760, 2000), (246, 246, 244, 255)); x = y = 4; rowh = 0  # contact sheet for eyeballing
     for name, sp in OUT.items():
         im = sp.image(name in SOFT)
         if x + im.width * 3 > 756: x, y, rowh = 4, y + rowh + 6, 0
         sheet.alpha_composite(im.resize((im.width * 3, im.height * 3), Image.NEAREST), (x, y))
         x += im.width * 3 + 6; rowh = max(rowh, im.height * 3)
-    sheet.save(os.path.join(ROOT, "art/sheet.png"))
+    sheet.crop((0, 0, 760, y + rowh + 4)).save(os.path.join(ROOT, "art/sheet.png"))
     write_icon()
     print(len(OUT), "sprites, icon written")
