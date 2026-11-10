@@ -17,7 +17,7 @@ The Joshua Tree version is merged (Joshua Tree 2.7.0) and playable in the OS.
 1. Watch the review: `asc status --app 6819131590`. If Apple rejects it, read the reason with `asc web review show --app 6819131590` before changing anything. Do not resubmit into a spam-wave rejection; appeal in Resolution Center.
 2. The day Apple approves it: the game is free for its first week. Schedule the $0.99 price for seven days later (command in `docs/MONEY.md`). Anyone who got it free keeps it free.
 3. After approval, add the App Store link to the README and the landing page.
-4. Landing page: the dark-mode night hero and the single pixel icon are in `main`. The web deploy was still running at checkpoint time; check it live before calling it shipped. Open: the top-left stats bar is hard to read in dark mode, and `art/qa_web.mjs` needs updating before its result counts. Both are in `roadmap.md`.
+4. Landing page: the dark-mode night hero and the single pixel icon are in `main`. The web deploy was still running at checkpoint time; check it live before calling it shipped. Open: the top-left stats bar is hard to read in dark mode (in `roadmap.md`). The landing QA check was updated to the current page in b4c783a.
 5. Joshua Tree: Hamurapi has no sound or difficulty setting in the OS yet.
 
 ## Restart prompt
