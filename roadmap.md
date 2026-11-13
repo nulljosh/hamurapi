@@ -17,3 +17,6 @@
 ## Stashed 2026-11-07
 - [ ] Next App Store version: the Mac 1.0.0 support and marketing URLs still point at hamurapi.heyitsmejosh.com (heyitsmejosh.com lapsed, the link is dead; App Review can reject on it). Set both to https://hamurapi.jaybulb.com in the new version's localizations. Live versions cannot be edited.
 - [ ] Dark mode, landing: the year, people, acres and grain bar at the top left of the hero is hard to read because the night tint darkens it.
+
+## Ingested 2026-11-13
+- [ ] Needs dark mode support.
