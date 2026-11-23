@@ -1,4 +1,4 @@
-# Hamurapi loop handoff (2026-11-10, 13:30)
+# Hamurapi loop handoff (2026-11-23, 12:06)
 
 ## What the loop is
 
