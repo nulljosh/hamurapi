@@ -1,13 +1,13 @@
-/* Tripwire design tokens. One source for the landing (brand/tokens.css is the same file).
-   Shared house system: 8 point grid, one radius set, 48 point capsule controls, the system font. Red is the only colour Tripwire owns. */
+/* Hamurapi design tokens. One source for the landing.
+   Shared house system: 8 point grid, one radius set, the system font. Terracotta is the only colour Hamurapi owns. */
 :root {
   /* colour */
   --accent: #b5502c;          /* actions and links, AA on white */
   --btn: #b5502c;             /* solid buttons, white label */
-  --frame: #b5502c;           /* the thin frame down the window edges */
-  --band: #b5502c;            /* full-bleed red sections */
+  --frame: #b5502c;           
+  --band: #b5502c;            /* the terracotta band and game mat */
   --band-sub: #f6dccf;        /* secondary text on the band, AA */
-  --band-art: #e8a88a;        /* the diff wall on the band */
+  --band-art: #e8a88a;        
   --band-line: rgba(255, 255, 255, .22);
   --accent-light: #e07a4f;    /* icon gradient top */
   --accent-deep: #b5502c;     /* icon gradient bottom */

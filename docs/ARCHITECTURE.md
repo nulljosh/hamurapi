@@ -47,14 +47,14 @@ Everything else sits on top of the rules: the story, the robot king, the drawn c
 
 | File | What it owns |
 |---|---|
-| `web/index.html` | The landing page. The top of it is the game itself. |
+| `web/index.html`, `landing.css`, `landing.js`, `tokens.css` | The landing page: a short hero, the real game under it, a year in four store shots, the features band, the App Store link. |
 | `web/play/index.html` | The web game: screens, settings, saving, the demo. Mirrors `GameModel.swift` and `Views.swift`. |
 | `web/play/scene.js` | Draws the city on a canvas. A line-for-line port of `Scene.swift`. |
 | `web/play/sprites.png`, `sprites.json` | Every sprite on one sheet, and where each one sits. |
 | `web/play/audio/` | The music and the sounds. |
 | `web/play/manifest.webmanifest`, `sw.js` | Make the web game installable and playable with no internet. |
 | `web/privacy.html` | The privacy page the store listing links to. |
-| `web/trailer.mp4`, `web/shots/` | The trailer and screenshots on the landing page. |
+| `web/trailer.mp4`, `web/shots/` | The trailer (not on the page yet) and the four screenshots on the landing page. |
 | `wrangler.toml` | Serves `web/` at hamurapi.heyitsmejosh.com. Deploy with `npx wrangler deploy`. |
 
 ## The App Store

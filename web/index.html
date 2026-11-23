@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#3d7a0f">
+<meta name="theme-color" content="#fdfdfd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#110c0a" media="(prefers-color-scheme: dark)">
 <title>Hamurapi: be king for 10 years</title>
 <meta name="description" content="Be king for 10 years. Feed your people. Keep your crown. The 1968 game, rebuilt with a living city, a story and music. Play it here, free.">
 <meta property="og:title" content="Hamurapi">
@@ -11,18 +12,19 @@
 <meta property="og:image" content="https://hamurapi.jaybulb.com/og.png">
 <meta property="og:url" content="https://hamurapi.jaybulb.com/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="icon.png">
+<link rel="canonical" href="https://hamurapi.jaybulb.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="landing.css">
-<link rel="stylesheet" href="hero.css?v=2">
-<style>.stage iframe{display:block;position:relative;width:100%;height:min(80svh,760px);border:0;border-radius:20px;background:var(--paper,#f6f6f4)}</style>
-<script src="landing.js" defer></script>
+<link rel="stylesheet" href="tokens.css?v=2">
+<link rel="stylesheet" href="landing.css?v=2">
+<script src="landing.js?v=2" defer></script>
 </head>
 <body>
 
 <header class="nav" aria-label="Site">
   <nav class="nav-links" aria-label="Main">
+    <a href="#year">How it plays</a>
     <a href="#features">Features</a>
     <a href="#get">Get it</a>
   </nav>
@@ -34,61 +36,72 @@
 </header>
 
 <main id="top">
-<section class="hero" id="hero">
-  <div class="hero-bg" aria-hidden="true" inert><iframe class="hero-game" src="play/?backdrop" title="" tabindex="-1" loading="eager"></iframe></div>
-  <div class="wrap center hero-copy">
+<section class="hero">
+  <div class="wrap center">
+    <img class="hero-icon" src="icon.png" alt="" width="96" height="96">
     <p class="label">The 1968 game, rebuilt</p>
-    <h1>Be king for 10 years.</h1>
-    <p class="lead">Feed your people. Keep your crown.</p>
+    <h1>Be king for 10&nbsp;years.</h1>
+    <p class="lead">Feed your people. Keep your crown. A whole city lives or starves on what you decide.</p>
     <div class="cta">
-      <a class="btn btn-solid" href="play/">Play full screen</a>
-      <a class="btn btn-ghost" href="#features">See what it does</a>
+      <a class="btn btn-solid" href="play/">Play free</a>
+      <a class="btn btn-ghost" href="https://apps.apple.com/app/id6819131590">On the App Store</a>
     </div>
-    <p class="fine">Free in your browser. Mac and iPhone too.</p>
+    <p class="fine">Free in your browser. Mac and iPhone on the App Store.</p>
   </div>
-
 </section>
 
 <section class="try">
-  <div class="demo-wrap reveal" id="demo">
-    <div class="stage">
-      <iframe id="game" title="Hamurapi, the game. Play it here." src="play/" allow="fullscreen"></iframe>
+  <div class="stage">
+    <iframe id="game" title="Hamurapi, the game. Play it here." src="play/" allow="fullscreen"></iframe>
+  </div>
+  <p class="hint">That is the real game. Press start and play.</p>
+</section>
+
+<section class="sec" id="year">
+  <div class="wrap">
+    <div class="head center">
+      <p class="label reveal">How it plays</p>
+      <h2 class="reveal">One year at a time</h2>
+      <p class="body reveal">You start with 100 people, 1,000 acres and a barn full of grain. Ten times over, you decide. Then you watch what happens.</p>
     </div>
-    <p class="demo-hint">That is the real game. Press start and play.</p>
+    <div class="steps">
+      <figure class="step reveal"><img src="shots/orders.png" alt="The orders panel: sliders for land to buy, grain to feed and acres to plant" width="1280" height="800" loading="lazy"><figcaption><span class="label">1. Orders</span><h3>Buy, feed, plant</h3><p>Three sliders. Every bushel you feed is a bushel you cannot plant.</p></figcaption></figure>
+      <figure class="step reveal"><img src="shots/report.png" alt="The year report: a great harvest, rats ate 1,045 bushels, nobody starved" width="1280" height="800" loading="lazy"><figcaption><span class="label">2. Harvest</span><h3>See how it went</h3><p>The fields fill in, the rats run at the barn, new people walk into town.</p></figcaption></figure>
+      <figure class="step reveal"><img src="shots/plague.png" alt="A plague year: ghosts rise over the city and half the people are gone" width="1280" height="800" loading="lazy"><figcaption><span class="label">3. Bad luck</span><h3>Plague comes</h3><p>Some years half the city dies. The graves stay where they fell.</p></figcaption></figure>
+      <figure class="step reveal"><img src="shots/over.png" alt="The end of the reign: an A+ grade, confetti over the city" width="1280" height="800" loading="lazy"><figcaption><span class="label">4. Your grade</span><h3>History judges you</h3><p>Ten years later you get a grade. Share it, or try for a better one.</p></figcaption></figure>
+    </div>
   </div>
 </section>
 
 <section class="band" id="features">
-  <div class="band-head">
-    <div class="band-copy reveal">
-      <p class="label">How it plays</p>
-      <h2>Land, grain and people</h2>
-      <p>You get 100 people, 1,000 acres and a barn full of grain. Each year you choose how much land to buy, how much to feed your people and how much to plant. Then you watch what happens.</p>
-    </div>
+  <div class="band-copy reveal">
+    <p class="label">What is inside</p>
+    <h2>More than the 1968 game</h2>
   </div>
   <div class="cells">
-    <article class="cell reveal"><p class="label">City</p><h3>It all shows</h3><p>Good harvest and the crowd cheers. Rats run at the barn. Starve people and you see the ghosts, and the graves stay.</p></article>
+    <article class="cell reveal"><p class="label">City</p><h3>It all shows</h3><p>Good harvest and the crowd cheers. Starve people and you see the ghosts.</p></article>
     <article class="cell reveal"><p class="label">Story</p><h3>A story with choices</h3><p>Traders, floods, a greedy king next door, a woman who reads the stars. Ten events, two choices each.</p></article>
     <article class="cell reveal"><p class="label">Daily</p><h3>Today's game</h3><p>Everyone who plays today gets the same luck. Same harvests, same rats. Compare grades.</p></article>
-    <article class="cell reveal"><p class="label">Classic</p><h3>The 1968 game, untouched</h3><p>Classic mode is the original rules with nothing added. Three levels for the story.</p></article>
+    <article class="cell reveal"><p class="label">Classic</p><h3>The 1968 rules, untouched</h3><p>Classic mode is the original game with nothing added. Three levels for the story.</p></article>
     <article class="cell reveal"><p class="label">Robot</p><h3>Watch the robot</h3><p>A robot king plays a whole game while you watch. It gets an A+ in 878 of 1,000 games. Beat it.</p></article>
     <article class="cell reveal"><p class="label">Music</p><h3>Music made of math</h3><p>The tune and every sound are worked out by a short program. No recordings.</p></article>
   </div>
 </section>
 
-<section class="sec plats" id="get">
+<section class="sec" id="get">
   <div class="wrap center">
     <p class="label reveal">Get it</p>
-    <h2 class="reveal">On your Mac and your iPhone</h2>
-    <p class="body reveal">Native on both. Works with no internet, saves your game each year, and collects nothing. The game on this page stays free.</p>
-    <div class="plat-row">
-      <div class="reveal"><small>Any browser</small><b>Web</b><p>Free, right here.</p><a class="btn btn-solid" href="play/">Play</a></div>
-      <div class="reveal"><small>macOS and iOS</small><b>Mac and iPhone</b><p>Signed builds on GitHub.</p><a class="btn btn-ghost" href="https://github.com/nulljosh/hamurapi/releases/latest">Download</a></div>
+    <h2 class="reveal">Play it anywhere</h2>
+    <p class="body reveal">Works with no internet, saves your game each year, and collects nothing. The game on this page stays free.</p>
+    <div class="plats">
+      <div class="plat reveal"><small>Any browser</small><b>Web</b><p>Free, right here. Add it to your home screen.</p><a class="btn btn-solid" href="play/">Play</a></div>
+      <div class="plat reveal"><small>macOS and iOS</small><b>Mac and iPhone</b><p>Native on both. One purchase covers both.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6819131590">App Store</a></div>
     </div>
+    <p class="fine">Or build it yourself from the <a href="https://github.com/nulljosh/hamurapi">source on GitHub</a>.</p>
   </div>
 </section>
 
-<section class="sec" id="credits">
+<section class="sec credits" id="credits">
   <div class="wrap center">
     <p class="label reveal">Where it came from</p>
     <h2 class="reveal">Thank you to the first ones</h2>
@@ -101,15 +114,14 @@
   <div class="foot-top">
     <div class="foot-brand"><img src="icon.png" alt="" width="40" height="40"><b>Hamurapi</b><p>Be king for 10 years.</p></div>
     <nav class="foot-cols" aria-label="Footer">
-      <div><p class="label">Hamurapi</p><a href="play/">Play</a><a href="#features">Features</a><a href="#get">Get it</a><a href="#credits">Story</a></div>
+      <div><p class="label">Hamurapi</p><a href="play/">Play</a><a href="#year">How it plays</a><a href="#features">Features</a><a href="#credits">Story</a></div>
       <div><p class="label">Source</p><a href="https://github.com/nulljosh/hamurapi">GitHub</a><a href="https://github.com/nulljosh/hamurapi/releases">Releases</a><a href="https://github.com/nulljosh/hamurapi/blob/main/LICENSE">License</a><a href="privacy">Privacy</a></div>
-      <div><p class="label">More</p><a href="mailto:trommatic@icloud.com?subject=Hamurapi">Help</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+      <div><p class="label">More</p><a href="https://apps.apple.com/app/id6819131590">App Store</a><a href="mailto:trommatic@icloud.com?subject=Hamurapi">Help</a><a href="https://jaybulb.com">More apps</a></div>
     </nav>
   </div>
   <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License &middot; Based on Hamurabi by Doug Dyment, 1968</p>
   <canvas class="footer-scene" aria-hidden="true"></canvas>
 </footer>
 <script src="footer-scene.js" defer></script>
-<script src="hero.js?v=1" defer></script>
 </body>
 </html>

@@ -17,8 +17,8 @@ The sprites are redrawn in `art/build.py` (f4bda7d): real legs and faces on the 
 ## Next, in order
 
 1. Check whether the $0.99 price change is scheduled. The plan was free for the first week, then $0.99 once (command in `docs/MONEY.md`). Anyone who got it free keeps it free.
-2. Add the App Store link to the README and the landing page.
-3. Landing and trailer: the night hero, the redrawn sprites and the new trailer are on `main`. Check the live site once, and listen to the trailer's music before using it anywhere. The next store version carries the new sprites to the apps; it is not submitted.
+2. Add the App Store link to the README. The landing has it since the 2026-11-23 redesign.
+3. Landing and trailer: the landing was redesigned 2026-11-23 (no backdrop hero, the game under a short hero, four store shots). The redrawn sprites and the new trailer are on `main`. Check the live site once, and listen to the trailer's music before using it anywhere. The next store version carries the new sprites to the apps; it is not submitted.
 4. Joshua Tree: Hamurapi has no sound or difficulty setting in the OS yet.
 
 ## Restart prompt
